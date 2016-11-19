@@ -3,12 +3,19 @@ package joseph.com.githubtest;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private TextView number;
+    private Button generate;
+    private Random rand;
 
     Button colorButton;
 
@@ -27,5 +34,19 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.activity_main).setBackgroundColor(color);
             }
         });
+
+        number = (TextView) findViewById(R.id.number);
+        generate = (Button) findViewById(R.id.generate);
+
+        generate.setOnClickListener(this);
+
+        rand = new Random();
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        int  n = rand.nextInt(50) + 1;
+        number.setText(n);
     }
 }
