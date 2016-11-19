@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView number;
     private Button generate;
     private Random rand;
+    private int n;
 
     Button colorButton;
 
@@ -42,11 +43,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         rand = new Random();
 
+
+
     }
 
     @Override
     public void onClick(View view) {
-        int  n = rand.nextInt(50) + 1;
-        number.setText(n);
+        n = rand.nextInt(50) + 1;
+        number.setText("" + n);
     }
 }
